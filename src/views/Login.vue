@@ -46,6 +46,16 @@ export default {
             error: null,
             errorMessage: "",
         }
+    },
+    methods: {
+        signIn() {
+            firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+                .then(() => {
+                    this.$router.push({name: "Home"})
+                    this.error = false;
+                    this.errorMessage = "";
+                }).catch()
+        }
     }
 }
 </script>
